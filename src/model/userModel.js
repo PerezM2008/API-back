@@ -33,12 +33,41 @@ const create = (newUser) => {
 
     //Retorna o usuario cadastrado
     return userWithId;
+}
 
+//Função para deletar um usuário
+const deleteUser = (id) => {
+
+    //Descobrir o index do elemento para excluir 
+    const index = users.findIndex(user => user.id === id);
+
+    if(index !== -1){
+        const [deletedUser] = users.splice(index,1);
+        return deletedUser;
+    }
+
+    return null;
+}
+
+//Função para atualizar dados de um usuario
+const updateUser = (dataUser) => {
+
+    //Descobrir o index do elemento para excluir 
+    const index = users.findIndex(user => user.id === dataUser.id);
+
+    //Alterando os dados
+    users[index] = dataUser;
+
+    return users[index];
 
 }
 
 module.exports = {
+    
     findAll,
     findById,
-    create
+    create,
+    deleteUser,
+    updateUser
+
 }

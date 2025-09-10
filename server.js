@@ -6,6 +6,7 @@ const userRoutes = require('./src/routes/usersRoutes')
 
 //Criar uma aplicação express
 const app = express();
+app.use(express.json());
 
 //Definir a port aem que o servidor irá funcionar (executar)
 const porta = 8000;
